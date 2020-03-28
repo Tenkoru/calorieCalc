@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15bd506b-1f3e-4bd8-a4db-2323fa4e8e97" name="Default Changelist" comment="" />
+    <list default="true" id="15bd506b-1f3e-4bd8-a4db-2323fa4e8e97" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Tenkoru.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +28,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cdek/Contract" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -33,6 +49,8 @@
       <option name="presentableId" value="Default" />
       <updated>1584974890253</updated>
       <workItem from="1584974892404" duration="550000" />
+      <workItem from="1585036360377" duration="25000" />
+      <workItem from="1585036396394" duration="12000" />
     </task>
     <servers />
   </component>
@@ -44,5 +62,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="3" y="3" width="1889" height="1025" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584975628913" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1585036406557">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585036406557" />
+    <state x="784" y="230" key="RollbackChangesDialog" timestamp="1584978139814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="784" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584978139814" />
+    <state x="657" y="252" width="606" height="536" key="find.popup" timestamp="1584977319065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="657" y="252" width="606" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584977319065" />
   </component>
 </project>
