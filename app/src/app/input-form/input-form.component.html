@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Калькулятор каллорий</h1>
+  <form [formGroup]="callForm">
+    <mat-form-field>
+      <mat-label>Посуда</mat-label>
+      <mat-select>
+        <mat-option title="{{tableware.weight}} грамм" *ngFor="let tableware of tablewares" [value]="tableware.name">
+          {{tableware.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="block"
+         formArrayName="ingredients"
+         *ngFor="let item of callForm.get('ingredients').controls; let i = index;">
+      <div class="line" [formGroupName]="i">
+        <mat-form-field class="formField">
+          <mat-label>{{item.controls.nameLabel.value}}</mat-label>
+          <input matInput formControlName="name" placeholder="{{item.controls.nameLabel.value}}">
+        </mat-form-field>
+        <mat-form-field class="formField">
+          <mat-label>{{item.controls.weightLabel.value}}</mat-label>
+          <input matInput formControlName="weight" placeholder="{{item.controls.weightLabel.value}}">
+        </mat-form-field>
+        <mat-form-field class="formField">
+          <mat-label>{{item.controls.caloriesLabel.value}}</mat-label>
+          <input matInput formControlName="calories" placeholder="{{item.controls.caloriesLabel.value}}">
+        </mat-form-field>
+        <div class="controls">
+          <mat-button></mat-button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,34 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 600px;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 50px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.03);
+  margin-top: 10px;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  & > * {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.formField {
+  width: 30%;
+}
+.controls {
+  display: flex;
+  width: 100%;
+}
