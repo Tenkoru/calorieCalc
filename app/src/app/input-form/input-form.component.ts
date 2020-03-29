@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import {StorageService} from '../storage.service';
 
 @Component({
   selector: 'app-input-form',
@@ -8,9 +9,10 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class InputFormComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder, private storageService: StorageService) {}
+
   caloriesForm: FormGroup;
   ingredients: FormArray;
-  localStorage
 
   tablewares = [
     {
@@ -73,8 +75,6 @@ export class InputFormComponent implements OnInit {
       this.result = String((caloriesInOneGram * proportions).toFixed(3));
     }
   }
-
-  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.caloriesForm = this.formBuilder.group({
