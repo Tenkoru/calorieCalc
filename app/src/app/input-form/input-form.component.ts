@@ -63,6 +63,7 @@ export class InputFormComponent implements OnInit {
   calculate() {
     if (this.caloriesForm.valid) {
       const ingredients = this.ingredients.value;
+      const tablewareWeight = this.caloriesForm.controls.tableware.value;
       let callSum = 0;
       let weightSum = 0;
       const weightResult = this.caloriesForm.controls.resultWeigth.value;
@@ -71,7 +72,7 @@ export class InputFormComponent implements OnInit {
         weightSum += Number(ingredient.weight);
       });
       const caloriesInOneGram = callSum / 100;
-      const proportions = weightSum / weightResult;
+      const proportions = weightSum / (weightResult - tablewareWeight);
       this.result = String((caloriesInOneGram * proportions).toFixed(3));
     }
   }
@@ -80,6 +81,7 @@ export class InputFormComponent implements OnInit {
     this.caloriesForm = this.formBuilder.group({
         ingredients: this.formBuilder.array([this.createItem()]),
         resultWeigth: '',
+        tableware: '',
     });
     this.ingredients = this.caloriesForm.get('ingredients') as FormArray;
   }

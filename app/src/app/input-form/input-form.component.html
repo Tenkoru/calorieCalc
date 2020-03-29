@@ -3,8 +3,8 @@
   <form [formGroup]="caloriesForm" (ngSubmit)="calculate()">
     <mat-form-field>
       <mat-label>Посуда</mat-label>
-      <mat-select required value="">
-        <mat-option title="{{tableware.weight}} грамм" *ngFor="let tableware of tablewares" [value]="tableware.name">
+      <mat-select required formControlName="tableware">
+        <mat-option title="{{tableware.weight}} грамм" *ngFor="let tableware of tablewares" [value]="tableware.weight">
           {{tableware.name}}
         </mat-option>
       </mat-select>
