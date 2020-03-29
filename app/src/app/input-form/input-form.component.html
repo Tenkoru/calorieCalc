@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Калькулятор каллорий</h1>
-  <form [formGroup]="callForm">
+  <h1>Калькулятор калорий</h1>
+  <form [formGroup]="caloriesForm" (ngSubmit)="calculate()">
     <mat-form-field>
       <mat-label>Посуда</mat-label>
-      <mat-select>
+      <mat-select required value="">
         <mat-option title="{{tableware.weight}} грамм" *ngFor="let tableware of tablewares" [value]="tableware.name">
           {{tableware.name}}
         </mat-option>
@@ -11,25 +11,39 @@
     </mat-form-field>
     <div class="block"
          formArrayName="ingredients"
-         *ngFor="let item of callForm.get('ingredients').controls; let i = index;">
+         *ngFor="let item of caloriesForm.get('ingredients')['controls']; let i = index;">
       <div class="line" [formGroupName]="i">
         <mat-form-field class="formField">
-          <mat-label>{{item.controls.nameLabel.value}}</mat-label>
-          <input matInput formControlName="name" placeholder="{{item.controls.nameLabel.value}}">
+          <mat-label>{{labels.name}}</mat-label>
+          <input matInput formControlName="name" placeholder="{{labels.name}}">
         </mat-form-field>
         <mat-form-field class="formField">
-          <mat-label>{{item.controls.weightLabel.value}}</mat-label>
-          <input matInput formControlName="weight" placeholder="{{item.controls.weightLabel.value}}">
+          <mat-label>{{labels.weight}}</mat-label>
+          <input required matInput formControlName="weight" placeholder="{{labels.weight}}">
         </mat-form-field>
         <mat-form-field class="formField">
-          <mat-label>{{item.controls.caloriesLabel.value}}</mat-label>
-          <input matInput formControlName="calories" placeholder="{{item.controls.caloriesLabel.value}}">
+          <mat-label>{{labels.calories}}</mat-label>
+          <input required matInput formControlName="calories" placeholder="{{labels.calories}}">
         </mat-form-field>
         <div class="controls">
-          <mat-button></mat-button>
+          <button mat-button *ngIf="i === caloriesForm.get('ingredients')['controls'].length - 1" (click)="addItem()">Добавить ингредиент</button>
+          <button class="control-left" mat-button *ngIf="caloriesForm.get('ingredients')['controls'].length > 1" (click)="removeItem(i)">Удалить ингредиент</button>
         </div>
+        <mat-divider class="divider-full"></mat-divider>
       </div>
     </div>
+    <div class="result-weight">
+      <mat-form-field class="formField">
+        <mat-label>Вес блюда брутто</mat-label>
+        <input matInput formControlName="resultWeigth" placeholder="Вес блюда брутто" required>
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="result">
+      <button mat-button type="submit" [disabled]="caloriesForm.invalid">Посчитать</button>
+      <button mat-button type="button" (click)="reset()">Сбросить</button>
+    </div>
+    <div *ngIf="result">Калорий на грамм готвого блюда: {{result}}</div>
   </form>
 
 </div>

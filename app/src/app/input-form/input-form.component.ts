@@ -8,8 +8,9 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class InputFormComponent implements OnInit {
 
-  callForm: FormGroup;
+  caloriesForm: FormGroup;
   ingredients: FormArray;
+  localStorage
 
   tablewares = [
     {
@@ -22,28 +23,65 @@ export class InputFormComponent implements OnInit {
     }
   ];
 
+  labels = {
+    name: 'Ингредиент',
+    weight: 'Вес',
+    calories: 'Каллории',
+  };
+
+  result = '';
+
   createItem(): FormGroup {
     return this.formBuilder.group({
-      nameLabel: 'Ингредиент',
       name: '',
-      weightLabel: 'Вес',
       weight: '',
-      caloriesLabel: 'Каллории',
       calories: '',
     });
   }
 
   addItem(): void {
-    this.ingredients = this.callForm.get('ingredients') as FormArray;
     this.ingredients.push(this.createItem());
+  }
+
+  removeItem(index): void {
+    this.ingredients.removeAt(index);
+  }
+
+  reset(): void {
+    this.caloriesForm.reset();
+    this.result = '';
+    if (this.ingredients.length > 1) {
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = this.ingredients.length - 1; i > 0; i--) {
+        this.ingredients.removeAt(i);
+      }
+    }
+  }
+
+  calculate() {
+    if (this.caloriesForm.valid) {
+      const ingredients = this.ingredients.value;
+      let callSum = 0;
+      let weightSum = 0;
+      const weightResult = this.caloriesForm.controls.resultWeigth.value;
+      ingredients.forEach((ingredient) => {
+        callSum += Number(ingredient.calories);
+        weightSum += Number(ingredient.weight);
+      });
+      const caloriesInOneGram = callSum / 100;
+      const proportions = weightSum / weightResult;
+      this.result = String((caloriesInOneGram * proportions).toFixed(3));
+    }
   }
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.callForm = this.formBuilder.group({
+    this.caloriesForm = this.formBuilder.group({
         ingredients: this.formBuilder.array([this.createItem()]),
+        resultWeigth: '',
     });
+    this.ingredients = this.caloriesForm.get('ingredients') as FormArray;
   }
 
 }
